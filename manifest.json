@@ -4,27 +4,24 @@
     "description": "Unlock the full capability of pears!",
     "version": "1.0",
     "icons": {
-      "1024": "assets/peardeck.png"
+        "1024": "assets/peardeck.png"
     },
     "background": {
-      "service_worker": "background.js"
+        "service_worker": "background.js"
     },
     "permissions": [
-      "activeTab",
-      "storage",
-      "scripting",
-      "webNavigation",
-      "webRequest",
-      "webRequestBlocking",
-      "<all_urls>"
+        "activeTab",
+        "storage",
+        "scripting",
+        "webNavigation",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
     ],
     "action": {
-      "default_popup": {
-        "popup": "popup.html"
-      },
-      "default_icon": {
+        "default_popup": "popup.html",
+        "default_icon": {
         "1024": "assets/peardeck.png"
-      }
+        }
     }
-  }
-  
+}
