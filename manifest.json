@@ -7,7 +7,7 @@
       "1024": "assets/peardeck.png"
     },
     "background": {
-      "service_worker": "background.js"
+      "scripts": "background.js"
     },
     "permissions": [
         "activeTab",
