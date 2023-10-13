@@ -8,8 +8,8 @@
     },
     "content_scripts": [
         {
-            "matches": ["*://*.google.com/*"],
-            "js": ["script.js"]
+            "matches": ["<all_urls>"],
+            "js": ["background.js"]
         }
     ],
     "host_permissions": ["<all_urls>"],
