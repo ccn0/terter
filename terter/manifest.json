@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Terter",
-    "description": "Replace the HTML of pages!",
-    "version": "0.1.0",
+    "description": "Replace the HTML that loads in URLs!",
+    "version": "0.1.1",
     "icons": {
         "1024": "assets/tertericon.png"
     },

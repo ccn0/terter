@@ -14,29 +14,37 @@ chrome.storage.local.get("savedData", function (result) {
       savedDataArray = result.savedData;
     }
 });
-
 document.addEventListener("DOMContentLoaded", function () {
     const urlInput = document.getElementById("urlInput");
     const htmlTextarea = document.getElementById("htmlTextarea");
     const saveButton = document.getElementById("saveButton");
-  
+
     saveButton.addEventListener("click", async () => {
         const url = urlInput.value;
         const html = htmlTextarea.value;
-        
-        if (url && html) {
-            const data = {
-                url: url,
-                html: html,
-            };
-          
-            savedDataArray.push(data);
 
-            // Save data to local storage
-            try {
-                await chrome.storage.local.set({ savedData: savedDataArray });
-            } catch (error) {
-                console.error("Error saving data:", error);
+        if (url && html) {
+            // Check if the URL already exists in savedDataArray
+            const isDuplicate = savedDataArray.some(item => item.url === url);
+
+            if (!isDuplicate) {
+                const data = {
+                    url: url,
+                    html: html,
+                };
+
+                savedDataArray.push(data);
+
+                // Save data to local storage
+                try {
+                    await chrome.storage.local.set({ savedData: savedDataArray });
+                } catch (error) {
+                    console.error("Error saving data:", error);
+                }
+            } else {
+                // URL is already in the array
+                console.log("URL already exists in savedDataArray.");
+                buttonAlert('saveButton', "Already exists!")
             }
         }
     });
@@ -68,3 +76,15 @@ deleteButton.addEventListener("click", function () {
         });
     }
 });
+
+function buttonAlert(buttonId, alert) {
+    const button = document.getElementById(buttonId)
+    const ogText = button.textContent
+    const ogBG = button.style.backgroundColor
+    button.textContent = alert
+    button.style.backgroundColor = '#ff8282'
+    setTimeout(() => {
+        button.textContent = ogText
+        button.style.backgroundColor = ogBG
+    }, 1000); // 1000 milliseconds = 1 second
+}

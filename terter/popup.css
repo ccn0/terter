@@ -41,5 +41,6 @@ button {
 
 button:active {
     mix-blend-mode: difference;
-    padding: 3px;
+    padding: 4px;
+    margin:4px;
 }

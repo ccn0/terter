@@ -14,6 +14,7 @@ function getDataFromLocalStorage(callback) {
 getDataFromLocalStorage(function (data) {
     if (data) {
         checkUrl(data)
+        console.log("data", data)
     }
 });
 
