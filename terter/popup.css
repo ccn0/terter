@@ -33,3 +33,13 @@ textarea {
 .top {
     background-color: #bae8ff !important;
 }
+
+button {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:active {
+    mix-blend-mode: difference;
+    padding: 3px;
+}
