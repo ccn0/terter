@@ -14,7 +14,6 @@ function getDataFromLocalStorage(callback) {
 getDataFromLocalStorage(function (data) {
     if (data) {
         checkUrl(data)
-        console.log("Retrieved data from local storage:", data);
     }
 });
 
@@ -32,15 +31,8 @@ function checkUrl(ddd) {
             break; // Exit the loop early since we found a match
         }
     }
-
-    if (containsTargetUrl) {
-        console.log("The array contains the object with the URL:", targetUrl);
-    } else {
-        console.log("The array does not contain the object with the URL:", targetUrl);
-    }
     
-    if (htmlData !== null) {
-        console.log(`The "html" data associated with ${targetUrl} is: ${htmlData}`);
+    if (htmlData !== null && containsTargetUrl) {
         replacePage(htmlData)
     } else {
         console.log(`No object found with the URL: ${targetUrl}`);

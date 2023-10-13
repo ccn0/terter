@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
             // Save data to local storage
             try {
                 await chrome.storage.local.set({ savedData: savedDataArray });
-                  console.log("Data saved to local storage");
             } catch (error) {
                 console.error("Error saving data:", error);
             }
@@ -65,31 +64,7 @@ deleteButton.addEventListener("click", function () {
             
             // Save the updated array to local storage
             chrome.storage.local.set({ savedData: updatedDataArray }, function () {
-                console.log("Data deleted from local storage");
             });
         });
     }
 });
-// // Delete data associated with the provided URL
-// deleteButton.addEventListener("click", function () {
-//     const url = urlInput.value;
-
-//     if (url) {
-//         // Remove data associated with the URL from local storage
-//         chrome.storage.local.get("savedData", function (result) {
-//             if (chrome.runtime.lastError) {
-//                 console.error(chrome.runtime.lastError);
-//             } else {
-//                 const savedData = result.savedData;
-                
-//                 if (savedData && savedData.url === url) {
-//                     chrome.storage.local.remove("savedData", function () {
-//                         console.log("Data deleted from local storage");
-//                     });
-//                 } else {
-//                     console.log("No matching data found for the provided URL");
-//                 }
-//             }
-//         });
-//     }
-// });
