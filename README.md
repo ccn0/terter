@@ -9,6 +9,9 @@ This only works on Google Chrome, Microsoft Edge, or any browser based on Chromi
 
 - Go to `chrome://extensions`, and turn on Developer Mode.
 - Drag the .crx file into the extensions area.
+**OR**
+- Unpack the terter.zip and click Load Unpacked
+- Select the unpack terter\ directory
 
 ## Usage
 
