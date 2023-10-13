@@ -1,0 +1,35 @@
+html {
+    width: 250px;
+    height: 400px;
+    background-color: #121212;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    margin: 0;
+}
+
+.form {
+    margin: 10px;
+    background-color: #cfcfcf;
+    color:#121212;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+input,textarea,button {
+    margin: 3px;
+    padding:5px;
+    background-color: #fff;
+    border:solid 1px #000;
+    border-radius: 6px;
+}
+
+textarea {
+    resize: vertical;
+    max-height: 75vh;
+}
+
+.top {
+    background-color: #bae8ff !important;
+}
