@@ -6,22 +6,20 @@
     "icons": {
         "1024": "assets/peardeck.png"
     },
-    "background": {
-        "service_worker": "background.js"
-    },
+    "content_scripts": [
+        {
+            "matches": ["*://*.google.com/*"],
+            "js": ["script.js"]
+        }
+    ],
+    "host_permissions": ["<all_urls>"],
     "permissions": [
         "activeTab",
         "storage",
         "scripting",
         "tabs",
         "webNavigation",
-        "webRequest",
-        "webRequestBlocking",
-        "<all_urls>"
-    ],
-    "host_permissions": [
-        "http://*/*",
-        "https://*/*"
+        "webRequest"
     ],
     "action": {
         "default_popup": "popup.html",
