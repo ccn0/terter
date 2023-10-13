@@ -14,7 +14,7 @@ This only works on Google Chrome, Microsoft Edge, or any browser based on Chromi
 
 - Click on the extension in the extensions bar.
 
-![Popup](https://raw.githubusercontent.com/ccn0/terterterter/main/readme-popup.png)
+![Popup](readme-popup.png)
 
 - You will see a text box for the URL (autofills with the current page's URL), a text box for the HTML of your custom page, and a submit and delete button.
 
