@@ -1,4 +1,4 @@
-# Terterterter
+# Terter
 
 Change the HTML that loads when you visit a URL.
 
