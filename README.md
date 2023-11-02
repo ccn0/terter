@@ -2,12 +2,9 @@
 
 Change the HTML that loads when you visit a URL.
 
-**!!! This is a Chrome extension !!!**  
-This only works on Google Chrome, Microsoft Edge, or any browser based on Chromium.
-I might end up making versions for Firefox or Opera, but I don't know.
-Just leaving this for the public to create and decide.
-
 ## Install
+
+### Chrome
 
 - Go to `chrome://extensions`, and turn on Developer Mode.
 - Unpack the terter.zip and click Load Unpacked
