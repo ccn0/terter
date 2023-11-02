@@ -10,6 +10,11 @@ Change the HTML that loads when you visit a URL.
 - Unpack the terter.zip and click Load Unpacked
 - Select the unpack terter\ directory
 
+### Firefox
+
+- [Install it from Firefox Addons](https://addons.mozilla.org/en-US/firefox/addon/terter/)
+- _I will be making the .xpi in a bit_
+
 ## Usage
 
 - Click on the extension in the extensions bar.
