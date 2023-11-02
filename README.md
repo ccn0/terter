@@ -4,7 +4,7 @@ Change the HTML that loads when you visit a URL.
 
 ## Install
 
-### Chrome
+### Chrome/Edge/Chromium
 
 - Go to `chrome://extensions`, and turn on Developer Mode.
 - Unpack the terter.zip and click Load Unpacked
