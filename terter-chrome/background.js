@@ -1,4 +1,3 @@
-// Add a function to retrieve data from local storage
 function getDataFromLocalStorage(callback) {
     chrome.storage.local.get("savedData", function (result) {
         if (chrome.runtime.lastError) {
@@ -10,11 +9,9 @@ function getDataFromLocalStorage(callback) {
     });
 }
 
-// Example of how to use the function to retrieve data
 getDataFromLocalStorage(function (data) {
     if (data) {
         checkUrl(data)
-        console.log("data", data)
     }
 });
 
@@ -36,7 +33,7 @@ function checkUrl(ddd) {
     if (htmlData !== null && containsTargetUrl) {
         replacePage(htmlData)
     } else {
-        console.log(`No object found with the URL: ${targetUrl}`);
+        console.error(`No object found with the URL: ${targetUrl}`);
     }
 }
 
