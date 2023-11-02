@@ -1,5 +1,5 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "Terter",
     "description": "Replace the HTML that loads in URLs!",
     "version": "0.1.2",
@@ -12,17 +12,15 @@
             "js": ["background.js"]
         }
     ],
-    "host_permissions": ["<all_urls>"],
     "permissions": [
         "activeTab",
         "storage",
-        "scripting",
         "tabs"
     ],
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "1024": "assets/tertericon.png"
-      }
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "1024": "assets/tertericon.png"
+        }
     }
 }

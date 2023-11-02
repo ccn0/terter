@@ -1,0 +1,47 @@
+html {
+    width: 250px;
+    height: auto;
+    background-color: #121212;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    margin: 0;
+    max-width: 270px;
+}
+
+.form {
+    margin: 10px;
+    background-color: #cfcfcf;
+    color:#121212;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+input,textarea,button {
+    margin: 3px;
+    padding:5px;
+    background-color: #fff;
+    border:solid 1px #000;
+    border-radius: 6px;
+}
+
+textarea {
+    resize: vertical;
+    max-height: 75vh;
+}
+
+.top {
+    background-color: #bae8ff !important;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:active {
+    mix-blend-mode: difference;
+    padding: 4px;
+    margin:4px;
+}
