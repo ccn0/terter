@@ -4,7 +4,7 @@
     "description": "Replace the HTML that loads on websites!",
     "version": "0.1.2",
     "icons": {
-        "1024": "assets/tertericon.png"
+        "500": "assets/tertericon.png"
     },
     "content_scripts": [
         {
@@ -20,7 +20,7 @@
     "browser_action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "1024": "assets/tertericon.png"
+            "500": "assets/tertericon.png"
         }
     }
 }
