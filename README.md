@@ -13,7 +13,13 @@ Change the HTML that loads when you visit a URL.
 ### Firefox
 
 - [Install it from Firefox Addons](https://addons.mozilla.org/en-US/firefox/addon/terter/)
-- _I will be making the .xpi in a bit_
+
+#### OR
+
+- Download the `.xpi` file from Releases
+- Open about:addons
+- Click the gear and select Load Addon from File
+- Open the `.xpi` file
 
 ## Usage
 
