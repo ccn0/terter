@@ -14,7 +14,7 @@ Change the HTML that loads when you visit a URL.
 
 - [Install it from Firefox Addons](https://addons.mozilla.org/en-US/firefox/addon/terter/)
 
-#### OR
+#### Manually
 
 - Download the `.xpi` file from Releases
 - Open about:addons
