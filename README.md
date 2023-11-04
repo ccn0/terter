@@ -7,8 +7,8 @@ Change the HTML that loads when you visit a URL.
 ### Chrome/Edge/Chromium
 
 - Go to `chrome://extensions`, and turn on Developer Mode.
-- Unpack the terter.zip and click Load Unpacked
-- Select the unpack terter\ directory
+- Unpack the terter.zip, then click Load Unpacked
+- Select the unpack `terter\` directory
 
 ### Firefox
 
@@ -16,10 +16,10 @@ Change the HTML that loads when you visit a URL.
 
 #### Manually
 
-- Download the `.xpi` file from Releases
-- Open about:addons
+- Download the .xpi file from Releases
+- Open `about:addons`
 - Click the gear and select Load Addon from File
-- Open the `.xpi` file
+- Open the .xpi file
 
 ## Usage
 
