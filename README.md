@@ -4,11 +4,22 @@ Change the HTML that loads when you visit a URL.
 
 ## Install
 
-### Chrome
+### Chrome/Edge/Chromium
 
 - Go to `chrome://extensions`, and turn on Developer Mode.
-- Unpack the terter.zip and click Load Unpacked
-- Select the unpack terter\ directory
+- Unpack the terter.zip, then click Load Unpacked
+- Select the unpack `terter\` directory
+
+### Firefox
+
+- [Install it from Firefox Addons](https://addons.mozilla.org/en-US/firefox/addon/terter/)
+
+#### Manually
+
+- Download the .xpi file from Releases
+- Open `about:addons`
+- Click the gear and select Load Addon from File
+- Open the .xpi file
 
 ## Usage
 
