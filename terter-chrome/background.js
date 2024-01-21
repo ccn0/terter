@@ -5,6 +5,7 @@ function getDataFromLocalStorage(callback) {
             callback(null);
         } else {
             callback(result.savedData);
+            console.log(result.savedData)
         }
     });
 }
@@ -23,18 +24,22 @@ function checkUrl(ddd) {
     let htmlData = null;
     
     for (const obj of myArray) {
-        if (obj.url === targetUrl) {
+        if (isUrlMatch(obj.url, targetUrl)) {
             containsTargetUrl = true;
             htmlData = obj.html;
-            break; // Exit the loop early since we found a match
+            break;
         }
     }
     
     if (htmlData !== null && containsTargetUrl) {
         replacePage(htmlData)
     } else {
-        console.error(`No object found with the URL: ${targetUrl}`);
     }
+}
+
+function isUrlMatch(savedUrlPattern, targetUrl) {
+    const regex = new RegExp(savedUrlPattern.replace(/\*/g, '.*'));
+    return regex.test(targetUrl);
 }
 
 function replacePage(page) {

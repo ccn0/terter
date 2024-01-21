@@ -6,6 +6,8 @@ html {
 }
 body {
     margin: 0;
+    max-height: 400px;
+    overflow-y: scroll;
 }
 
 .form {
@@ -43,4 +45,9 @@ button:active {
     mix-blend-mode: difference;
     padding: 4px;
     margin:4px;
+}
+
+ul,ol {
+    text-align: left;
+    overflow: clip;
 }
