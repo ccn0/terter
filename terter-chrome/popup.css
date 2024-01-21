@@ -51,3 +51,9 @@ ul,ol {
     text-align: left;
     overflow: clip;
 }
+
+li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
