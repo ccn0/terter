@@ -1,6 +1,5 @@
 let savedDataArray = [];
 
-// Get the current tab's URL
 browser.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     const currentTab = tabs[0];
     const url = currentTab.url;
@@ -11,7 +10,6 @@ browser.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 browser.storage.local.get("savedData", function (result) {
     if (!browser.runtime.lastError && result.savedData) {
         savedDataArray = result.savedData;
-        console.log(savedDataArray);
     }
 });
 
@@ -57,7 +55,22 @@ document.addEventListener("DOMContentLoaded", function () {
             browser.storage.local.set({ savedData: savedDataArray });
         }
     });
+
+    displaySavedURLs()
 });
+
+function displaySavedURLs() {
+    const ulElement = document.getElementById('savedurls');
+    ulElement.innerHTML = ""
+
+    savedDataArray.forEach(data => {
+      const liElement = document.createElement('li');
+
+      liElement.textContent = data.url;
+
+      ulElement.appendChild(liElement);
+    });
+}
 
 function buttonAlert(buttonId, alert) {
     const button = document.getElementById(buttonId);

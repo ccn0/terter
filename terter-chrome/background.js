@@ -5,20 +5,19 @@ function getDataFromLocalStorage(callback) {
             callback(null);
         } else {
             callback(result.savedData);
-            console.log(result.savedData)
         }
     });
 }
 
 getDataFromLocalStorage(function (data) {
     if (data) {
-        checkUrl(data)
+        checkUrl(data);
     }
 });
 
 function checkUrl(ddd) {
-    const myArray = ddd
-  
+    const myArray = ddd;
+
     const targetUrl = window.location.href;
     let containsTargetUrl = false;
     let htmlData = null;

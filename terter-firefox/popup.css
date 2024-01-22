@@ -1,14 +1,13 @@
 html {
-    width: 250px;
-    height: 400px;
+    max-width: 250px;
+    max-height: 400px;
     background-color: #121212;
     font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
-    overflow-y: scroll;
 }
 body {
     margin: 0;
-    max-width: 250px;
+    max-height: 400px;
+    overflow-y: scroll;
 }
 
 .form {
@@ -46,4 +45,15 @@ button:active {
     mix-blend-mode: difference;
     padding: 4px;
     margin:4px;
+}
+
+ul,ol {
+    text-align: left;
+    overflow: clip;
+}
+
+li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

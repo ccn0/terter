@@ -23,10 +23,10 @@ function checkUrl(ddd) {
     let htmlData = null;
     
     for (const obj of myArray) {
-        if (obj.url === targetUrl) {
+        if (isUrlMatch(obj.url, targetUrl)) {
             containsTargetUrl = true;
             htmlData = obj.html;
-            break; // Exit the loop early since we found a match
+            break;
         }
     }
     
@@ -35,6 +35,11 @@ function checkUrl(ddd) {
     } else {
         console.error(`No object found with the URL: ${targetUrl}`);
     }
+}
+
+function isUrlMatch(savedUrlPattern, targetUrl) {
+    const regex = new RegExp(savedUrlPattern.replace(/\*/g, '.*'));
+    return regex.test(targetUrl);
 }
 
 function replacePage(page) {

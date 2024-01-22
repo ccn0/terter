@@ -1,5 +1,3 @@
-console.log('IM ALIVE!!!!')
-
 let savedDataArray = [];
 
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
