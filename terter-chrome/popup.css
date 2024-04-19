@@ -47,13 +47,16 @@ button:active {
     margin:4px;
 }
 
-ul,ol {
+ul {
+    padding: 0;
+    margin: 0;
     text-align: left;
-    overflow: clip;
+    list-style-type: disc;
 }
 
 li {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: 100%;
 }
