@@ -10,6 +10,7 @@ browser.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 browser.storage.local.get("savedData", function (result) {
     if (!browser.runtime.lastError && result.savedData) {
         savedDataArray = result.savedData;
+        displaySavedURLs()
     }
 });
 
@@ -55,20 +56,18 @@ document.addEventListener("DOMContentLoaded", function () {
             browser.storage.local.set({ savedData: savedDataArray });
         }
     });
-
-    displaySavedURLs()
 });
 
 function displaySavedURLs() {
     const ulElement = document.getElementById('savedurls');
-    ulElement.innerHTML = ""
 
     savedDataArray.forEach(data => {
-      const liElement = document.createElement('li');
+        const liElement = document.createElement('li');
 
-      liElement.textContent = data.url;
+        liElement.textContent = data.url;
 
-      ulElement.appendChild(liElement);
+        ulElement.appendChild(liElement);
+        console.log(ulElement, data.url)
     });
 }
 

@@ -50,11 +50,11 @@ function displaySavedURLs() {
     const ulElement = document.getElementById('savedurls');
     
     savedDataArray.forEach(data => {
-      const liElement = document.createElement('li');
-
-      liElement.textContent = data.url;
-
-      ulElement.appendChild(liElement);
+        const liElement = document.createElement('li');
+        
+        liElement.textContent = data.url;
+        
+        ulElement.appendChild(liElement);
     });
 }
 document.addEventListener('DOMContentLoaded', function () {
