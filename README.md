@@ -7,8 +7,8 @@ Change the HTML that loads when you visit a URL.
 ### Chrome/Edge/Chromium
 
 - Go to `chrome://extensions`, and turn on Developer Mode.
-- Unpack the terter.zip, then click Load Unpacked
-- Select the unpack `terter\` directory
+- Decompress the terter.zip to a seperate folder, then click Load Unpacked
+- Select the unpacked `terter\` directory
 
 ### Firefox
 
