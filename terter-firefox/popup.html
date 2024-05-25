@@ -1,7 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="popup.css">
+    <style>
+        html {
+            max-width: 250px;
+            height: 400px;
+            background-color: #121212;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            margin: 0;
+            max-height: 400px;
+            overflow-y: scroll;
+        }
+
+        .form {
+            margin: 10px;
+            background-color: #cfcfcf;
+            color:#121212;
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        input,textarea,button {
+            margin: 3px;
+            padding:5px;
+            background-color: #fff;
+            border:solid 1px #000;
+            border-radius: 6px;
+        }
+
+        textarea {
+            resize: vertical;
+            max-height: 75vh;
+        }
+
+        .top {
+            background-color: #bae8ff !important;
+        }
+
+        button {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:active {
+            mix-blend-mode: difference;
+            padding: 4px;
+            margin:4px;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            list-style-type: disc;
+        }
+
+        li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+
+        #savedurls li {
+            span {
+                width: 100%;
+                &:hover {
+                    background-color: #bae8ff;
+                }
+                cursor: alias;
+                &.delete {
+                    padding: 0 5px;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #ff8282;
+                    }
+                }
+            }
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terter</title>

@@ -50,11 +50,28 @@ function displaySavedURLs() {
     const ulElement = document.getElementById('savedurls');
     
     savedDataArray.forEach(data => {
-        const liElement = document.createElement('li');
+        const liElem = document.createElement('li');
+        const spanElem = document.createElement('span');
+        const buttonElem = document.createElement('span');
         
-        liElement.textContent = data.url;
+        liElem.setAttribute('data-url',data.url);
+        spanElem.addEventListener('click', function() {
+            urlInput.value = liElem.getAttribute('data-url');
+        });
         
-        ulElement.appendChild(liElement);
+        buttonElem.textContent = "-";
+        buttonElem.setAttribute('class', 'delete');
+        buttonElem.addEventListener('click', function() {
+            deleteFromSavedDataArray(this.parentElement.getAttribute('data-url'));
+            this.parentElement.remove();
+        });
+
+        spanElem.textContent = data.url;
+
+        liElem.appendChild(buttonElem);
+        liElem.appendChild(spanElem);
+        
+        ulElement.appendChild(liElem);
     });
 }
 document.addEventListener('DOMContentLoaded', function () {
@@ -85,6 +102,17 @@ deleteButton.addEventListener("click", function () {
         });
     }
 });
+
+function deleteFromSavedDataArray(url) {
+    if (url) {
+        getAllDataFromLocalStorage(function (savedDataArray) {
+            const updatedDataArray = savedDataArray.filter((data) => data.url !== url);
+            
+            chrome.storage.local.set({ savedData: updatedDataArray }, function () {
+            });
+        });
+    }
+}
 
 function buttonAlert(buttonId, alert) {
     const button = document.getElementById(buttonId)

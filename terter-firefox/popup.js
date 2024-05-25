@@ -13,7 +13,17 @@ browser.storage.local.get("savedData", function (result) {
         displaySavedURLs()
     }
 });
-
+function getAllDataFromLocalStorage(callback) {
+    chrome.storage.local.get("savedData", function (result) {
+        if (chrome.runtime.lastError) {
+            console.error(chrome.runtime.lastError);
+            callback([]);
+        } else {
+            const savedData = result.savedData || [];
+            callback(savedData);
+        }
+    });
+}
 document.addEventListener("DOMContentLoaded", function () {
     const urlInput = document.getElementById("urlInput");
     const htmlTextarea = document.getElementById("htmlTextarea");
@@ -57,17 +67,42 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
+function deleteFromSavedDataArray(url) {
+    if (url) {
+        getAllDataFromLocalStorage(function (savedDataArray) {
+            const updatedDataArray = savedDataArray.filter((data) => data.url !== url);
+            
+            chrome.storage.local.set({ savedData: updatedDataArray }, function () {
+            });
+        });
+    }
+}
 function displaySavedURLs() {
     const ulElement = document.getElementById('savedurls');
-
+    
     savedDataArray.forEach(data => {
-        const liElement = document.createElement('li');
+        const liElem = document.createElement('li');
+        const spanElem = document.createElement('span');
+        const buttonElem = document.createElement('span');
+        
+        liElem.setAttribute('data-url',data.url);
+        spanElem.addEventListener('click', function() {
+            urlInput.value = liElem.getAttribute('data-url');
+        });
+        
+        buttonElem.textContent = "-";
+        buttonElem.setAttribute('class', 'delete');
+        buttonElem.addEventListener('click', function() {
+            deleteFromSavedDataArray(this.parentElement.getAttribute('data-url'));
+            this.parentElement.remove();
+        });
 
-        liElement.textContent = data.url;
+        spanElem.textContent = data.url;
 
-        ulElement.appendChild(liElement);
-        console.log(ulElement, data.url)
+        liElem.appendChild(buttonElem);
+        liElem.appendChild(spanElem);
+        
+        ulElement.appendChild(liElem);
     });
 }
 
