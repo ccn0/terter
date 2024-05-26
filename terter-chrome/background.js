@@ -37,7 +37,7 @@ function checkUrl(ddd) {
 }
 
 function isUrlMatch(savedUrlPattern, targetUrl) {
-    const regex = new RegExp(savedUrlPattern.replace(/\*/g, '.*'));
+    const regex = new RegExp(`^${savedUrlPattern.replace(/\*/g, '.*')}$`);
     return regex.test(targetUrl);
 }
 
