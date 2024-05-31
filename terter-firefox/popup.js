@@ -7,12 +7,21 @@ browser.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     document.getElementById('urlInput').value = url;
 });
 
+function refreshSavedDataArray() {
+    browser.storage.local.get("savedData", function (result) {
+        if (!browser.runtime.lastError && result.savedData) {
+            savedDataArray = result.savedData;
+        }
+    });
+};
+
 browser.storage.local.get("savedData", function (result) {
     if (!browser.runtime.lastError && result.savedData) {
         savedDataArray = result.savedData;
-        displaySavedURLs()
+        displaySavedURLs();
     }
 });
+
 function getAllDataFromLocalStorage(callback) {
     chrome.storage.local.get("savedData", function (result) {
         if (chrome.runtime.lastError) {
@@ -24,6 +33,7 @@ function getAllDataFromLocalStorage(callback) {
         }
     });
 }
+
 document.addEventListener("DOMContentLoaded", function () {
     const urlInput = document.getElementById("urlInput");
     const htmlTextarea = document.getElementById("htmlTextarea");
@@ -47,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 try {
                     await browser.storage.local.set({ savedData: savedDataArray });
+                    refreshSavedDataArray();
                 } catch (error) {
                     console.error("Error saving data:", error);
                 }
@@ -64,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
             savedDataArray = savedDataArray.filter(data => data.url !== url);
 
             browser.storage.local.set({ savedData: savedDataArray });
+            refreshSavedDataArray();
         }
     });
 });
@@ -75,6 +87,7 @@ function deleteFromSavedDataArray(url) {
             chrome.storage.local.set({ savedData: updatedDataArray }, function () {
             });
         });
+        refreshSavedDataArray();
     }
 }
 function displaySavedURLs() {

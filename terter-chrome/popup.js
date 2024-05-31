@@ -7,11 +7,14 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     document.getElementById('urlInput').value = (url);
 });
 
-chrome.storage.local.get("savedData", function (result) {
-    if (!chrome.runtime.lastError && result.savedData) {
-        savedDataArray = result.savedData;
-    }
-});
+refreshSavedDataArray();
+function refreshSavedDataArray() {
+    chrome.storage.local.get("savedData", function (result) {
+        if (!chrome.runtime.lastError && result.savedData) {
+            savedDataArray = result.savedData;
+        }
+    });
+};
 
 document.addEventListener("DOMContentLoaded", function () {
     const urlInput = document.getElementById("urlInput");
@@ -35,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 try {
                     await chrome.storage.local.set({ savedData: savedDataArray });
+                    refreshSavedDataArray();
                 } catch (error) {
                     console.error("Error saving data:", error);
                 }
@@ -74,6 +78,7 @@ function displaySavedURLs() {
         ulElement.appendChild(liElem);
     });
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     displaySavedURLs();
 });
@@ -99,6 +104,7 @@ deleteButton.addEventListener("click", function () {
             
             chrome.storage.local.set({ savedData: updatedDataArray }, function () {
             });
+            refreshSavedDataArray();
         });
     }
 });
@@ -110,6 +116,7 @@ function deleteFromSavedDataArray(url) {
             
             chrome.storage.local.set({ savedData: updatedDataArray }, function () {
             });
+            refreshSavedDataArray();
         });
     }
 }
