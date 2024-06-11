@@ -32,8 +32,7 @@ function checkUrl(ddd) {
     
     if (htmlData !== null && containsTargetUrl) {
         replacePage(htmlData)
-    } else {
-    }
+    } else {}
 }
 
 function isUrlMatch(savedUrlPattern, targetUrl) {

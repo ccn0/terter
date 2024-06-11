@@ -40,10 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     await chrome.storage.local.set({ savedData: savedDataArray });
                     refreshSavedDataArray();
                 } catch (error) {
-                    console.error("Error saving data:", error);
+                    console.error("Error:", error);
                 }
             } else {
-                console.log("URL already exists in savedDataArray.");
                 buttonAlert('saveButton', "Already exists!")
             }
         }
@@ -64,6 +63,7 @@ function displaySavedURLs() {
         });
         
         buttonElem.textContent = "-";
+        buttonElem.title = "Delete URL Entry";
         buttonElem.setAttribute('class', 'delete');
         buttonElem.addEventListener('click', function() {
             deleteFromSavedDataArray(this.parentElement.getAttribute('data-url'));
@@ -71,13 +71,14 @@ function displaySavedURLs() {
         });
 
         spanElem.textContent = data.url;
+        spanElem.title = data.url.substring(0,30);
 
         liElem.appendChild(buttonElem);
         liElem.appendChild(spanElem);
         
         ulElement.appendChild(liElem);
     });
-}
+};
 
 document.addEventListener('DOMContentLoaded', function () {
     displaySavedURLs();

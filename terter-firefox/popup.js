@@ -12,7 +12,7 @@ function refreshSavedDataArray() {
         if (!browser.runtime.lastError && result.savedData) {
             savedDataArray = result.savedData;
         }
-    });
+    }); 
 };
 
 browser.storage.local.get("savedData", function (result) {
@@ -23,9 +23,9 @@ browser.storage.local.get("savedData", function (result) {
 });
 
 function getAllDataFromLocalStorage(callback) {
-    chrome.storage.local.get("savedData", function (result) {
-        if (chrome.runtime.lastError) {
-            console.error(chrome.runtime.lastError);
+    browser.storage.local.get("savedData", function (result) {
+        if (browser.runtime.lastError) {
+            console.error(browser.runtime.lastError);
             callback([]);
         } else {
             const savedData = result.savedData || [];
@@ -59,10 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     await browser.storage.local.set({ savedData: savedDataArray });
                     refreshSavedDataArray();
                 } catch (error) {
-                    console.error("Error saving data:", error);
+                    console.error("Error:", error);
                 }
             } else {
-                console.log("URL already exists in savedDataArray.");
                 buttonAlert('saveButton', "Already exists!");
             }
         }
@@ -84,7 +83,7 @@ function deleteFromSavedDataArray(url) {
         getAllDataFromLocalStorage(function (savedDataArray) {
             const updatedDataArray = savedDataArray.filter((data) => data.url !== url);
             
-            chrome.storage.local.set({ savedData: updatedDataArray }, function () {
+            browser.storage.local.set({ savedData: updatedDataArray }, function () {
             });
         });
         refreshSavedDataArray();
@@ -104,6 +103,7 @@ function displaySavedURLs() {
         });
         
         buttonElem.textContent = "-";
+        buttonElem.title = "Delete URL Entry";
         buttonElem.setAttribute('class', 'delete');
         buttonElem.addEventListener('click', function() {
             deleteFromSavedDataArray(this.parentElement.getAttribute('data-url'));
@@ -111,13 +111,14 @@ function displaySavedURLs() {
         });
 
         spanElem.textContent = data.url;
+        spanElem.title = data.url.substring(0,30);
 
         liElem.appendChild(buttonElem);
         liElem.appendChild(spanElem);
         
         ulElement.appendChild(liElem);
     });
-}
+};
 
 function buttonAlert(buttonId, alert) {
     const button = document.getElementById(buttonId);

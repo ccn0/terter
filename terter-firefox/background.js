@@ -32,9 +32,7 @@ function checkUrl(ddd) {
     
     if (htmlData !== null && containsTargetUrl) {
         replacePage(htmlData);
-    } else {
-        console.error(`No object found with the URL: ${targetUrl}`);
-    }
+    } else {}
 }
 
 function isUrlMatch(savedUrlPattern, targetUrl) {

@@ -13,7 +13,6 @@
             max-height: 400px;
             overflow-y: scroll;
         }
-
         .form {
             margin: 10px;
             background-color: #cfcfcf;
@@ -22,7 +21,6 @@
             border-radius: 12px;
             text-align: center;
         }
-
         input,textarea,button {
             margin: 3px;
             padding:5px;
@@ -30,42 +28,31 @@
             border:solid 1px #000;
             border-radius: 6px;
         }
-
         textarea {
             resize: vertical;
             max-height: 75vh;
         }
-
         .top {
             background-color: #bae8ff !important;
         }
-
         button {
             cursor: pointer;
             transition: all 0.2s;
         }
-
         button:active {
             mix-blend-mode: difference;
             padding: 4px;
             margin:4px;
         }
-
         ul {
             padding: 0;
             margin: 0;
             text-align: left;
-            list-style-type: disc;
+            list-style-type: none;
         }
-
-        li {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 100%;
-        }
-
         #savedurls li {
+            font-size: 12px;
+            text-wrap: nowrap;
             span {
                 width: 100%;
                 &:hover {
@@ -81,6 +68,15 @@
                 }
             }
         }
+        .textinput {
+            display: flex;
+            width: 100%;
+            border-radius: 6px;
+            /* border: solid 1px #000; */
+            input[type=text]{
+                width: fit-content;
+            }
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,13 +84,15 @@
 </head>
 <body>
     <div class="form top">
-        <img src="assets/terterlogo.png" width="100%">
+        <img src="assets/terterlogo.png" width="100%" alt="Terter Logo">
     </div>
     <div class="form">
-        <input type="text" id="urlInput" placeholder="Enter URL">
-        <textarea id="htmlTextarea" placeholder="Enter HTML"></textarea>
-        <button id="saveButton">Save Custom Page</button><br>
-        <button id="deleteButton">Delete Custom Page</button>
+        <div class="textinput">
+            <input type="text" id="urlInput" placeholder="Enter URL" title="Enter URL">
+            <button id="deleteButton" title="Delete URL Entry">X</button>
+        </div>
+        <textarea id="htmlTextarea" placeholder="Enter HTML" title="Enter HTML"></textarea>
+        <button id="saveButton" title="Save Custom Page to URL">Save Custom Page</button>
     </div>
     <div class="form">
         <h2>Saved URLs</h2>
